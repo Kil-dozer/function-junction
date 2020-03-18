@@ -4,35 +4,63 @@
  * construct available in Javascript.
  */
 
-// ...
+function max(a, b) {
+  if (a > b) {
+    return a
+  } else {
+    return b
+  }
+}
 
 /**
  * 2) Define a function maxOfThree() that takes three
  * numbers as arguments and returns the largest of them.
  */
 
-// ...
+function maxOfThree(a, b, c) {
+  if ((a > b && b >= c) || (a > c && c >= b)) {
+    return a
+  } else if ((b > a && a >= c) || (b > c && c >= a)) {
+    return b
+  } else if ((c > a && a >= b) || (c > b && c >= a)) {
+    return c
+  }
+}
 
 /*
  * 3) Define a function sum() that takes two numbers as
  * arguments and computes the sum of those two numbers.
  */
 
-// ...
+function sum(a, b) {
+  return a + b
+}
 
 /*
  * 4) Define a function sumOfArray that calculates the sum of
  * all the numbers in an array.
  */
 
-// ...
+const sumOfArray = arr => {
+  let count = 0
+  arr.forEach(item => {
+    count += item
+  })
+  return count
+}
 
 /**
  * 5) Write a function isVowel() that takes a character (i.e. a string of length 1)
  * and returns true if it is a vowel, false otherwise.
  */
 
-// ...
+function isVowel(letter) {
+  if (letter.match(/[aeiouAEIOU]/)) {
+    return true
+  } else {
+    return false
+  }
+}
 
 /**
  * 6) Write a function rovarspraket() that will translate
@@ -43,7 +71,27 @@
  * return the string "tothohisos isos fofunon".
  */
 
-// ...
+const rovarspraket = str => {
+  const arr = str.split('')
+  const rv = []
+  arr.forEach(char => {
+    if (
+      char !== 'a' &&
+      char !== 'e' &&
+      char !== 'i' &&
+      char !== 'o' &&
+      char !== 'u'
+    ) {
+      rv.push(`${char}o${char}`)
+    } else {
+      rv.push(char)
+    }
+  })
+  return rv
+    .toString()
+    .split(',')
+    .join('')
+}
 
 /**
  * 7) Define a function reverse() that computes
@@ -52,7 +100,12 @@
  * string "books".
  */
 
-// ...
+function reverse(words) {
+  return words
+    .split('')
+    .reverse()
+    .join('')
+}
 
 /**
  * 8) Write a function findLongestWord() that takes an
@@ -61,7 +114,20 @@
  * i.e. findLongestWord("book dogs") should return "book"
  */
 
-// ...
+function findLongestWord(str) {
+  let split = str.split(' ')
+  let longest = 0
+  let word = ''
+
+  for (let i = 0; i < split.length; i++) {
+    if (split[i].length > longest) {
+      // longest = split[i]
+      longest = split[i].length
+      word = split[i]
+    }
+  }
+  return word
+}
 
 /**
  * NOTE: Don't modify anything below this line...
